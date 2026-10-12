@@ -1,0 +1,25 @@
+# Configuração da Fila JMS (Exemplo ActiveMQ Artemis)
+spring:
+  artemis:
+    broker-url: "tcp://localhost:61616"
+    user: "admin"
+    password: "admin"
+
+  # Configuração do Banco de Dados (Exemplo H2 em memória)
+  datasource:
+    url: "jdbc:h2:mem:pedidosdb"
+    driver-class-name: "org.h2.Driver"
+    username: "sa"
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: "update"
+
+  # Ativa o console do H2 para visualização
+  h2:
+    console:
+      enabled: true
+
+camel:
+  main:
+    run-controller: true

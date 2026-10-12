@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  activemq:
+    image: apache/activemq-artemis:latest-alpine
+    container_name: activemq-artemis
+    environment:
+      - ARTEMIS_USER=admin
+      - ARTEMIS_PASSWORD=admin
+      - ANONYMOUS_LOGIN=true
+    ports:
+      - "8161:8161"   # Console Web (http://localhost:8161/console)
+      - "61616:61616" # JMS / OpenWire
+      - "5672:5672"   # AMQP
+    volumes:
+      - activemq_data:/var/lib/artemis/data
+
+volumes:
+  activemq_data:

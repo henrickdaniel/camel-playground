@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: outbox-postgres
+    environment:
+      POSTGRES_DB: seu_banco
+      POSTGRES_USER: seu_usuario
+      POSTGRES_PASSWORD: sua_senha
+    ports:
+      - "5432:5432"
+    restart: always
+
+  redis:
+    image: redis:7.2-alpine
+    container_name: outbox-redis
+    ports:
+      - "6379:6379"
+    restart: always
+
+  activemq:
+    image: apache/activemq-classic:5.18.3
+    container_name: outbox-activemq
+    ports:
+      - "61616:61616" # Porta OpenWire do Broker JMS
+      - "8161:8161"   # Console Web (admin / admin)
+    restart: always

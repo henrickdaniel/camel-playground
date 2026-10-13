@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  artemis:
+    image: apache/activemq-artemis:2.32.0-alpine
+    container_name: artemis-broker
+    ports:
+      - "61616:61616" # Porta JMS / OpenWire
+      - "8161:8161"   # Console Web de Gerenciamento
+    environment:
+      - AMQ_USER=admin
+      - AMQ_PASSWORD=admin
+      - AMQ_TRANSPORTS=openwire

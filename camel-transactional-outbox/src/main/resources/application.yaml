@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/seu_banco
+    driver-class-name: org.postgresql.Driver
+    username: seu_usuario
+    password: sua_senha
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+
+  h2:
+    console:
+      enabled: true
+
+camel:
+  springboot:
+    name: camel-outbox-app

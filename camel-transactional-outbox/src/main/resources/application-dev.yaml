@@ -11,10 +11,10 @@ spring:
       ddl-auto: create-drop
     show-sql: true
 
-  h2:
-    console:
-      enabled: true
-
 camel:
   springboot:
     name: camel-outbox-app
+
+payment:
+  api:
+    url: http://localhost:8081/

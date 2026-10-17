@@ -1,8 +1,10 @@
 package com.example.camel.controller;
 
+import com.example.camel.BaseIntegrationTest;
 import com.example.camel.dto.CriarPedidoRequest;
 import com.example.camel.entity.OutboxEvent;
 import com.example.camel.service.PedidoService;
+import org.springframework.test.context.ActiveProfiles;
 import tools.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
@@ -22,7 +24,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class PedidoControllerIntegrationTest {
+@ActiveProfiles("test")
+class PedidoControllerIntegrationTest extends BaseIntegrationTest {
 
     @Autowired
     private MockMvc mockMvc;
